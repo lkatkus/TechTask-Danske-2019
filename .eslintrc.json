@@ -1,11 +1,5 @@
 {
-    "parserOptions": {
-        "ecmaVersion": 6,
-        "sourceType": "module",
-        "ecmaFeatures": {
-            "jsx": true
-        }
-    },
+    "parser": "babel-eslint",
     "rules": {
         "indent": ["error", 4, {
             "SwitchCase": 1

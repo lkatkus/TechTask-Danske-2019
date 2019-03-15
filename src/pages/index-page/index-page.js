@@ -1,12 +1,45 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
+import Button from 'components/button/button';
+import Loader from 'components/loader/loader';
+import fubarActions from 'redux/actions';
+
+import styles from './index-page.scss';
+
 class IndexPage extends Component {
+    constructor(props) {
+        super(props);
+
+        this.onClickGetValues = this.onClickGetValues.bind(this);
+    }
+
+    onClickGetValues() {
+        const {
+            actions,
+        } = this.props;
+
+        actions.beforeSetValue();
+    }
+
     render() {
+        const {
+            submitting,
+        } = this.props;
+
         return (
             <React.Fragment>
-                <div>Index page</div>
-                <div>{ this.props.value }</div>
+                { submitting && (
+                    <Loader />
+                ) }
+                <div className={ styles['container'] }>
+                    <Button
+                        onClick={ this.onClickGetValues }
+                        label='Get values'
+                        disabled={ submitting }
+                    />
+                </div>
             </React.Fragment>
         );
     }
@@ -14,6 +47,12 @@ class IndexPage extends Component {
 
 const mapStateToProps = (state) => ({
     value: state.value,
+    submitting: state.submitting,
 });
 
-export default connect(mapStateToProps)(IndexPage);
+const mapDispatchToProps = (dispatch) => ({
+    actions: bindActionCreators(fubarActions, dispatch),
+});
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(IndexPage);

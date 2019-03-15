@@ -1,0 +1,21 @@
+@import './../styles/grid.scss';
+
+.button {
+    display: inline-flex;
+    border: 1px solid #ddd;
+    padding: $padding;
+    text-transform: uppercase;
+    user-select: none;
+    position: relative;
+
+    &:hover {
+        cursor: pointer;
+        background-color: pink;
+    }
+
+    &.disabled {
+        color: grey;
+        background-color: yellow;
+        cursor: not-allowed;
+    }
+}
