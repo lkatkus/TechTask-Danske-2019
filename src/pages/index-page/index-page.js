@@ -8,12 +8,12 @@ class IndexPage extends Component {
                 <div>Index page</div>
                 <div>{ this.props.value }</div>
             </React.Fragment>
-        )
+        );
     }
 }
 
 const mapStateToProps = (state) => ({
     value: state.value,
-})
+});
 
 export default connect(mapStateToProps)(IndexPage);
