@@ -1,4 +1,4 @@
-import IndexPage from './IndexPage/IndexPage';
+import IndexPage from './index-page/index-page';
 
 export {
     IndexPage,
