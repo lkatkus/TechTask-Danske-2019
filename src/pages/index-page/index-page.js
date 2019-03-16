@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import Api from 'api/api';
 import fubarActions from 'redux/actions';
 import Button from 'components/button/button';
 import Loader from 'components/loader/loader';
@@ -21,24 +20,24 @@ class IndexPage extends Component {
             actions,
         } = this.props;
 
-        actions.beforeSetValue();
+        actions.getValues();
     }
 
     render() {
         const {
-            submitting,
+            isFetching,
         } = this.props;
 
         return (
             <React.Fragment>
-                { submitting && (
+                { isFetching && (
                     <Loader />
                 ) }
                 <div className={ styles['container'] }>
                     <Button
                         onClick={ this.onClickGetValues }
                         label='Get values'
-                        disabled={ submitting }
+                        disabled={ isFetching }
                     />
                 </div>
             </React.Fragment>
@@ -48,7 +47,7 @@ class IndexPage extends Component {
 
 const mapStateToProps = (state) => ({
     value: state.value,
-    submitting: state.submitting,
+    isFetching: state.isFetching,
 });
 
 const mapDispatchToProps = (dispatch) => ({

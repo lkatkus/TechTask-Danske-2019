@@ -1,20 +1,41 @@
 import * as actionTypes from './types';
 
 export const initialState = {
-    value: 1,
-    submitting: false,
+    values: null,
+    error: null,
+    isFetching: false,
+    isLoaded: false,
 };
 
 export const rootReducer = (state = initialState, action) => {
     switch(action.type) {
-        case(actionTypes.BEFORE_SET_VALUE):
+        case(actionTypes.BEFORE_GET_VALUES):
             return {
                 ...state,
-                submitting: true,
+                values: null,
+                isFetching: true,
             };
-        case(actionTypes.SET_VALUE):
+        case(actionTypes.AFTER_GET_VALUES):
             return {
-                value: action.payload.value,
+                ...state,
+                isFetching: false,
+                isLoaded: true,
+            };
+        case(actionTypes.AFTER_GET_VALUES_ERROR):
+            return {
+                ...state,
+                error: action.payload,
+                values: null,
+                isFetching: false,
+                isLoaded: false,
+            };
+        case(actionTypes.SET_VALUES):
+            return {
+                ...state,
+                values: {
+                    ...state.values,
+                    ...action.payload,
+                },
             };
     }
     return state;
