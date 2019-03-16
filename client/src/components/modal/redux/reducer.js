@@ -1,11 +1,11 @@
 import * as actionTypes from './types';
 
-export const initialState = {
+export const initialModalState = {
     modalOpen: false,
     modalProps: null,
 };
 
-export const modalReducer = (state = initialState, action) => {
+export const modalReducer = (state = initialModalState, action) => {
     switch(action.type) {
         case(actionTypes.OPEN_MODAL):
             return {

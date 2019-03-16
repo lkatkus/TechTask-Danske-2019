@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import styles from './button.scss';
@@ -18,16 +17,6 @@ const Button = ({ onClick, label, disabled }) => {
             { label }
         </div>
     );
-};
-
-Button.propTypes = {
-    onClick: PropTypes.func.isRequired,
-    label: PropTypes.string.isRequired,
-    disabled: PropTypes.bool,
-};
-
-Button.defaultProps = {
-    disabled: false,
 };
 
 export default Button;

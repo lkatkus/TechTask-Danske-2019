@@ -46,6 +46,7 @@ const displayResults = () => {
 const getValues = (inputValue) => {
     return (dispatch) => {
         dispatch(beforeGetValues());
+        dispatch(setValues({ inputValue }));
 
         Api.getPersonFubar(inputValue)
             .then((personData) => {

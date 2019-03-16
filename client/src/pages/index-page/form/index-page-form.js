@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form, Field, reduxForm } from 'redux-form';
 
 import Button from 'components/button/button';
+import TextInput from 'components/inputs/text-input/text-input';
 import validations from 'utils/validations';
 
 import styles from './index-page-form.scss';
@@ -45,8 +46,9 @@ class IndexPageForm extends Component {
             >
                 <Field
                     name='inputValue'
-                    component='input'
                     type='text'
+                    placeholder='Enter something'
+                    component={ TextInput }
                     validate={ [
                         isRequired,
                         hasWhiteSpaces,

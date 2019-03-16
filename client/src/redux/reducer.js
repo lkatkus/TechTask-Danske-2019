@@ -1,18 +1,18 @@
 import { combineReducers } from 'redux';
 
-import { modalReducer } from 'components/modal/redux/reducer';
+import { modalReducer, initialModalState } from 'components/modal/redux/reducer';
 import { reducer as formReducer } from 'redux-form';
 
 import * as actionTypes from './types';
 
-export const initialState = {
+export const initialPageState = {
     values: null,
     error: null,
     isFetching: false,
     isLoaded: false,
 };
 
-const pageReducer = (state = initialState, action) => {
+const pageReducer = (state = initialPageState, action) => {
     switch(action.type) {
         case(actionTypes.BEFORE_GET_VALUES):
             return {
@@ -44,6 +44,11 @@ const pageReducer = (state = initialState, action) => {
             };
     }
     return state;
+};
+
+export const initialRootState = {
+    page: initialPageState,
+    modal: initialModalState
 };
 
 export const rootReducer = combineReducers({

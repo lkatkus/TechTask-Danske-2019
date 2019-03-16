@@ -35,6 +35,9 @@ class IndexPage extends Component {
                     <Loader />
                 ) }
                 <div className={ styles['container'] }>
+                    <div className={ styles['title'] }>
+                        Get some values!
+                    </div>
                     <IndexPageForm
                         onSubmit={ this.handleSubmit }
                         isFetching={ isFetching }

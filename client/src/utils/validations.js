@@ -18,7 +18,7 @@ const isAlphaNumeric = value => {
 
 const hasWhiteSpaces = value => {
     return value && /\s/.test(value)
-        ? 'Value must not contain whitespaces'
+        ? 'No whitespaces allowed'
         : undefined;
 };
 
