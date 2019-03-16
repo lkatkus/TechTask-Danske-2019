@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
+import Api from 'api/api';
+import fubarActions from 'redux/actions';
 import Button from 'components/button/button';
 import Loader from 'components/loader/loader';
-import fubarActions from 'redux/actions';
 
 import styles from './index-page.scss';
 
