@@ -1,4 +1,5 @@
 import Api from 'api/api';
+import modalActions from 'components/modal/redux/actions';
 
 import * as actionTypes from './types';
 
@@ -28,6 +29,22 @@ const setValues = (values) => {
     };
 };
 
+const displayResults = () => {
+    return (dispatch, getState) => {
+        const {
+            page: {
+                values,
+            },
+        } = getState();
+
+        const results = values.val3 * values.val5;
+
+        dispatch(modalActions.open({
+            value: results,
+        }));
+    };
+};
+
 const getValues = () => {
     return (dispatch) => {
         dispatch(beforeGetValues());
@@ -46,7 +63,7 @@ const getValues = () => {
             .then((exposureData) => {
                 dispatch(setValues(exposureData));
                 dispatch(afterGetValues());
-                // TODO display modal with results
+                dispatch(displayResults());
             })
             .catch((error) => {
                 dispatch(afterGetValuesError(error.toString()));

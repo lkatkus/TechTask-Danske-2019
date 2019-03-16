@@ -1,3 +1,7 @@
+import { combineReducers } from 'redux';
+
+import { modalReducer } from 'components/modal/redux/reducer';
+
 import * as actionTypes from './types';
 
 export const initialState = {
@@ -7,7 +11,7 @@ export const initialState = {
     isLoaded: false,
 };
 
-export const rootReducer = (state = initialState, action) => {
+const pageReducer = (state = initialState, action) => {
     switch(action.type) {
         case(actionTypes.BEFORE_GET_VALUES):
             return {
@@ -40,3 +44,8 @@ export const rootReducer = (state = initialState, action) => {
     }
     return state;
 };
+
+export const rootReducer = combineReducers({
+    page: pageReducer,
+    modal: modalReducer,
+});

@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import fubarActions from 'redux/actions';
 import Button from 'components/button/button';
 import Loader from 'components/loader/loader';
+import Modal from 'components/modal/modal';
 
 import styles from './index-page.scss';
 
@@ -46,8 +47,7 @@ class IndexPage extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    value: state.value,
-    isFetching: state.isFetching,
+    isFetching: state.page.isFetching,
 });
 
 const mapDispatchToProps = (dispatch) => ({
