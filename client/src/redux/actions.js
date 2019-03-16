@@ -37,10 +37,8 @@ const displayResults = () => {
             },
         } = getState();
 
-        const results = values.val3 * values.val5;
-
         dispatch(modalActions.open({
-            value: results,
+            values,
         }));
     };
 };

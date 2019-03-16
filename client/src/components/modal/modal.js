@@ -25,6 +25,21 @@ class Modal extends Component {
         this.modalRoot.removeChild(this.modalElement);
     }
 
+    renderValues(values) {
+        return Object.keys(values).map((value) => (
+            <div key={ value }>
+                { `${value} - ${values[value]}` }
+            </div>
+        ));
+    }
+
+    renderResults(values) {
+        const results = values.val3 * values.val5;
+        const resultsMessage = `val3 * val5 = ${results}`;
+
+        return <div>{ resultsMessage }</div>;
+    }
+
     renderModal() {
         const {
             actions,
@@ -35,7 +50,8 @@ class Modal extends Component {
             <div className={ styles['modal'] }>
                 <div className={ styles['content-wrapper'] }>
                     <div className={ styles['content'] }>
-                        { modal.modalProps.value }
+                        { this.renderValues(modal.modalProps.values) }
+                        { this.renderResults(modal.modalProps.values) }
                     </div>
                     <div className={ styles['footer'] }>
                         <Button
