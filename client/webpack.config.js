@@ -3,14 +3,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     devtool: 'source-map',
-    devServer: {
-        proxy: {
-            '/api': {
-                target: 'http://localhost:3000',
-                pathRewrite: { '^/api': '' },
-            },
-        }
-    },
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'build'),
