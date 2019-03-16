@@ -3,9 +3,9 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import fubarActions from 'redux/actions';
-import Button from 'components/button/button';
 import Loader from 'components/loader/loader';
-import Modal from 'components/modal/modal';
+
+import IndexPageForm from './form/index-page-form';
 
 import styles from './index-page.scss';
 
@@ -13,15 +13,15 @@ class IndexPage extends Component {
     constructor(props) {
         super(props);
 
-        this.onClickGetValues = this.onClickGetValues.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    onClickGetValues() {
+    handleSubmit({ inputValue }) {
         const {
             actions,
         } = this.props;
 
-        actions.getValues();
+        actions.getValues(inputValue);
     }
 
     render() {
@@ -35,10 +35,9 @@ class IndexPage extends Component {
                     <Loader />
                 ) }
                 <div className={ styles['container'] }>
-                    <Button
-                        onClick={ this.onClickGetValues }
-                        label='Get values'
-                        disabled={ isFetching }
+                    <IndexPageForm
+                        onSubmit={ this.handleSubmit }
+                        isFetching={ isFetching }
                     />
                 </div>
             </React.Fragment>

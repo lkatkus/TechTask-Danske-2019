@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 
 import { modalReducer } from 'components/modal/redux/reducer';
+import { reducer as formReducer } from 'redux-form';
 
 import * as actionTypes from './types';
 
@@ -48,4 +49,5 @@ const pageReducer = (state = initialState, action) => {
 export const rootReducer = combineReducers({
     page: pageReducer,
     modal: modalReducer,
+    form: formReducer,
 });

@@ -45,11 +45,11 @@ const displayResults = () => {
     };
 };
 
-const getValues = () => {
+const getValues = (inputValue) => {
     return (dispatch) => {
         dispatch(beforeGetValues());
 
-        Api.getPersonFubar()
+        Api.getPersonFubar(inputValue)
             .then((personData) => {
                 dispatch(setValues(personData));
 
