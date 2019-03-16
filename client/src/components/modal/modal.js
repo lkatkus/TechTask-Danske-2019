@@ -37,7 +37,11 @@ class Modal extends Component {
         const results = values.val3 * values.val5;
         const resultsMessage = `val3 * val5 = ${results}`;
 
-        return <div>{ resultsMessage }</div>;
+        return (
+            <div className={ styles['results'] }>
+                { resultsMessage }
+            </div>
+        );
     }
 
     renderModal() {

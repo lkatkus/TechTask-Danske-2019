@@ -5,7 +5,7 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const RESPONSE_TIMEOUT = 300;
+const RESPONSE_TIMEOUT = 500;
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -16,8 +16,6 @@ app.get('/', (req, res) => {
 });
 
 app.get('/person/:input', (req, res) => {       
-    console.log(req);
-
     setTimeout(() => {
         res.status(200).send({
             val1: Math.floor(Math.random() * 255),

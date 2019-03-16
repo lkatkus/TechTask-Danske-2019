@@ -7,6 +7,7 @@ import validations from 'utils/validations';
 import styles from './index-page-form.scss';
 
 const isRequired = validations.isRequired;
+const hasWhiteSpaces = validations.hasWhiteSpaces;
 const isAlphaNumeric = validations.isAlphaNumeric;
 const isLengthBetween = validations.isLengthBetween(0, 10);
 
@@ -48,6 +49,7 @@ class IndexPageForm extends Component {
                     type='text'
                     validate={ [
                         isRequired,
+                        hasWhiteSpaces,
                         isLengthBetween,
                         isAlphaNumeric,
                     ] }

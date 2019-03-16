@@ -51,12 +51,12 @@ const getValues = (inputValue) => {
             .then((personData) => {
                 dispatch(setValues(personData));
 
-                return Api.getFacilityFubar();
-            })
-            .then((facilityData) => {
-                dispatch(setValues(facilityData));
+                return Api.getFacilityFubar(personData.val1)
+                    .then((facilityData) => {
+                        dispatch(setValues(facilityData));
 
-                return Api.getExposureFubar();
+                        return Api.getExposureFubar(personData.val2);
+                    });
             })
             .then((exposureData) => {
                 dispatch(setValues(exposureData));

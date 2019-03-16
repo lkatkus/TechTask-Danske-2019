@@ -16,8 +16,15 @@ const isAlphaNumeric = value => {
         : undefined;
 };
 
+const hasWhiteSpaces = value => {
+    return value && /\s/.test(value)
+        ? 'Value must not contain whitespaces'
+        : undefined;
+};
+
 export default {
     isRequired,
     isLengthBetween,
     isAlphaNumeric,
+    hasWhiteSpaces,
 };
